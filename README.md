@@ -1,3 +1,11 @@
+# Install - Quang
+```
+git clone https://github.com/davidnvq/task-spooler.git
+cd task-spooler/
+make clean
+./reinstall
+```
+
 # GPU Task Spooler
 
 Originally, [Task Spooler by Lluís Batlle i Rossell](https://vicerveza.homeunix.net/~viric/soft/ts/).

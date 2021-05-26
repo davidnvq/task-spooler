@@ -13,6 +13,7 @@
 /* From jobs.c */
 extern int busy_slots;
 extern int max_slots;
+const int cmd_len = 200;
 
 char *joblistdump_headers() {
     char *line;
@@ -133,7 +134,7 @@ static char *print_noresult(const struct Job *p) {
                  p->gpus,
                  dependstr,
                  shorten(p->label, 10),
-                 shorten(p->command, 20));
+                 shorten(p->command, cmd_len));
     else
         snprintf(line, maxlen, "%-4i %-10s %-20s %-8s %6s %-5d %s%s\n",
                  p->jobid,
@@ -143,7 +144,7 @@ static char *print_noresult(const struct Job *p) {
                  "",
                  p->gpus,
                  dependstr,
-                 shorten(p->command, 20));
+                 shorten(p->command, cmd_len));
 
     return line;
 }
@@ -213,7 +214,7 @@ static char *print_result(const struct Job *p) {
                  p->gpus,
                  dependstr,
                  shorten(p->label, 10),
-                 shorten(p->command, 20));
+                 shorten(p->command, cmd_len));
     else
         snprintf(line, maxlen, "%-4i %-10s %-20s %-8i %5.2f%s %-5d %s%s\n",
                  p->jobid,
@@ -224,7 +225,7 @@ static char *print_result(const struct Job *p) {
                  unit,
                  p->gpus,
                  dependstr,
-                 shorten(p->command, 20));
+                 shorten(p->command, cmd_len));
 
     return line;
 }
